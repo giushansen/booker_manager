@@ -1,0 +1,27 @@
+.table {
+  thead > tr > th {
+    font-size: 15px;
+    &.table-number {
+      text-align: center;
+      font-weight: normal;
+      width: 7%;
+    }
+  }
+
+  tbody > tr > td {
+    &.number {
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    &.paid {
+      background-color: green;
+    }
+    &.unpaid{
+      background-color: red;
+    }
+    &.booked {
+      background-color: orange;
+    }
+  }
+}
