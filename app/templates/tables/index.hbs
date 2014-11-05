@@ -14,6 +14,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                              {{caca}}
                                 <th class="table-number">Table</th>
                                 <th>18</th>
                                 <th><em class="small">15</em></th>
@@ -31,26 +32,7 @@
                         </thead>
                         <tbody>
                           {{#each}}
-                            <tr>
-                              <td class="number">{{number}} <em class="small">({{seats}})</em></td>
-                              <td class="paid">
-                                {{bills.length}}
-                                {{#each bill in bills}}
-                                  {{bill.table.comments}}
-                                {{/each}}
-                              </td>
-                              <td class="paid">&nbsp;</td>
-                              <td class="paid">&nbsp;</td>
-                              <td class="unpaid">&nbsp;</td>
-                              <td class="unpaid">&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                            </tr>
+                            {{render 'tables/show' this}}
                           {{/each}}
                         </tbody>
                     </table>
