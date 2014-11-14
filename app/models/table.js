@@ -21,7 +21,7 @@ Table.reopenClass({
     { id: 9, number: 9, seats: 3, seatsMax: 3, canJoin: [0] },
     { id: 10, number: 10, seats: 2, seatsMax: 3, canJoin: [0] },
     { id: 11, number: 21, seats: 4, seatsMax: 5, canJoin: [0] },
-    { id: 11, number: 22, seats: 4, seatsMax: 5, canJoin: [0] },
+    { id: 12, number: 22, seats: 4, seatsMax: 5, canJoin: [0] },
   ]
 });
 

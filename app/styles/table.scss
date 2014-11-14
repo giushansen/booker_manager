@@ -1,5 +1,6 @@
 .table {
   thead > tr > th {
+    padding: 2px 0px 2px 0px;
     font-size: 15px;
     &.table-number {
       text-align: center;
@@ -8,20 +9,24 @@
     }
   }
 
-  tbody > tr > td {
-    &.number {
-      text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-    }
-    &.paid {
-      background-color: green;
-    }
-    &.unpaid{
-      background-color: red;
-    }
-    &.booked {
-      background-color: orange;
+  tbody > tr {
+    height: 40px;
+    td {
+      padding: 8px 0px 8px 0px;
+      &.number {
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      &.paid {
+        background-color: green;
+      }
+      &.unpaid{
+        background-color: red;
+      }
+      &.booked {
+        background-color: orange;
+      }
     }
   }
 }

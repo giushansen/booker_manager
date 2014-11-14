@@ -7,7 +7,12 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('tables', { path: '/tables' }, function() {
-   // Additional child routes will go here later
+    // Additional child routes will go here later
+    this.resource('table', { path: 'tables/:table_id' }, function() {
+        this.resource('bills', { path: '/bills' }, function() {
+          // Additional child routes will go here later
+        });
+    });
   });
 });
 
