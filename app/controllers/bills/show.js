@@ -13,7 +13,7 @@ export default Ember.ObjectController.extend({
         .$("#" + this.get('table.id') + "-" + timeToString(timeInDate.getHours()) + "-" + timeToString(timeInDate.getMinutes()))
       var end = Ember
         .$("#" + this.get('table.id') + "-" + timeToString(timeOutDate.getHours()) + "-" + timeToString(timeOutDate.getMinutes()))
-      begin.nextUntil(end).addClass('unpaid');;
+      begin.nextUntil(end).addClass('unpaid');
 
     });
   }.observes('id', 'timeIn', 'timeOut').on('init'),
