@@ -16,7 +16,6 @@ export function timeLine(tableId) {
   return new Ember.Handlebars.SafeString(html);
 }
 
-
 function totalTimeToString(s){
   return timeToString(s.hrs) + '-' + timeToString(s.mins);
 }
