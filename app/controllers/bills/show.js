@@ -1,12 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
-  bills: function() {
-    // deal with the change
+  needs: 'application',
+
+  fillTable: function() {
     Ember.run.scheduleOnce('afterRender', this, function(){
-    //console.log('Hi', jQuery('#1-18-08').attr('id'));
-      Ember.$("#" + this.get('table.id') + "-18-08").addClass('unpaid');
+      var timeInDate = new Date(this.get('timeIn'));
+      var timeOutDate = new Date(this.get('timeOut'));
+      var timeToString = this.get('controllers.application').timeToString;
+
+      var begin = Ember
+        .$("#" + this.get('table.id') + "-" + timeToString(timeInDate.getHours()) + "-" + timeToString(timeInDate.getMinutes()))
+      var end = Ember
+        .$("#" + this.get('table.id') + "-" + timeToString(timeOutDate.getHours()) + "-" + timeToString(timeOutDate.getMinutes()))
+      begin.nextUntil(end).addClass('unpaid');;
+
     });
-  }.observes('timeIn').on('init'),
+  }.observes('id', 'timeIn', 'timeOut').on('init'),
+
 });
 //new Date().toDateString() == new Date('Date here ...').toDateString()

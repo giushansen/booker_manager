@@ -21,6 +21,7 @@ function totalTimeToString(s){
   return timeToString(s.hrs) + '-' + timeToString(s.mins);
 }
 
+// @todo This is available in the Controller method
 function timeToString(time){
   return ('0' + time ).slice(-2);
 }
