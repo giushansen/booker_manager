@@ -9,7 +9,7 @@ Router.map(function() {
   this.resource('tables', { path: '/tables' }, function() {
     // Additional child routes will go here later
     this.resource('table', { path: 'tables/:table_id' }, function() {
-        this.resource('bills', { path: '/bills' }, function() {
+        this.resource('bill', { path: '/bill/:bill_id' }, function() {
           // Additional child routes will go here later
         });
     });

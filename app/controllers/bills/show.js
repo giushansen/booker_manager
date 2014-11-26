@@ -25,8 +25,8 @@ export default Ember.ObjectController.extend({
       }
 
       // Draw the bill for this given table
-      var start = Ember.$("#" + this.get('table.id') + "-" + timeToString(timeInDate.getHours()) + "-" + timeToString(timeInDate.getMinutes()))
-      var end = Ember.$("#" + this.get('table.id') + "-" + timeToString(timeOutDate.getHours()) + "-" + timeToString(timeOutDate.getMinutes()))
+      var start = Ember.$("#" + this.get('table.id') + "-" + timeToString(timeInDate.getHours()) + "-" + timeToString(timeInDate.getMinutes()));
+      var end = Ember.$("#" + this.get('table.id') + "-" + timeToString(timeOutDate.getHours()) + "-" + timeToString(timeOutDate.getMinutes()));
       start.nextUntil(end).addClass(billStatus);
     });
   }.observes('id', 'timeIn', 'timeOut').on('init'),
