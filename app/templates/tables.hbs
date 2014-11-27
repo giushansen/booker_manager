@@ -3,4 +3,37 @@
     <h1 class="page-header">Table management</h1>
   </div>
 </div>
-{{outlet}}
+<div class="row">
+    <div class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-table fa-fw"></i>
+              1st of October night service
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="table-number">Table</th>
+                                {{time-header}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {{#each}}
+                            {{render 'tables/show' this}}
+                          {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-9 -->
+    <div class="col-lg-3">
+      {{outlet}}
+    </div>
+</div>
