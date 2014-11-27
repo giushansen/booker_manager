@@ -1,11 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
-  // Shortcut
+  // Shortcut method
   needs: 'application',
   application: Ember.computed.alias("controllers.application"),
   totalTimeToString: function(d) {
-    return this.get('application').totalTimeToString(d);
+    if ( isNaN(d) ) {
+      return '-----';
+    }else{
+      return this.get('application').totalTimeToString(d);
+    }
   },
 
   start: function() {
