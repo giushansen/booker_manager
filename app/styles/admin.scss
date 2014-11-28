@@ -98,6 +98,19 @@ body {
   }
 }
 
+.form-group {
+  label {
+    font-weight: normal;
+  }
+  input.form-control {
+    font-weight: bold;
+  }
+  span.input-group-addon {
+    padding: 6px 6px 6px 8px;
+    width: 33%;
+  }
+}
+
 @media (min-width: 768px) {
   .sidebar {
     z-index: 1;

@@ -17,7 +17,7 @@ Bill.reopenClass({
     { id: 2, customer: 2, timeIn: 'Mon Nov 03 2014 19:25:00 GMT+0800 (AWST)', amount: 39.5, paid: true, timeOut: 'Mon Nov 03 2014 20:40:00 GMT+0800 (AWST)', comments: 'This is a bad customer'},
     { id: 3, customer: 3, timeIn: 'Mon Nov 03 2014 18:14:00 GMT+0800 (AWST)', amount: 39.5, paid: true, timeOut: 'Mon Nov 03 2014 20:00:00 GMT+0800 (AWST)', comments: 'This is a good client'},
     { id: 4, customer: 4, timeIn: 'Mon Nov 03 2014 18:50:00 GMT+0800 (AWST)', amount: 39.5, paid: true, timeOut: 'Mon Nov 03 2014 20:38:00 GMT+0800 (AWST)', comments: 'This is a good client'},
-    { id: 5, customer: 5, timeIn: 'Mon Nov 03 2014 18:30:00 GMT+0800 (AWST)', amount: 39.5, paid: true, timeOut: '', comments: 'This is a good client'},
+    { id: 5, customer: 5, timeIn: 'Mon Nov 03 2014 18:30:00 GMT+0800 (AWST)', amount: 39.5, paid: false, timeOut: '', comments: 'This is a good client'},
     { id: 6, customer: 6, timeIn: '', amount: 39.5, paid: false, timeBooked: 'Mon Nov 03 2014 20:30:00 GMT+0800 (AWST)', timeOut: '', comments: 'This is a good client'},
   ]
 });

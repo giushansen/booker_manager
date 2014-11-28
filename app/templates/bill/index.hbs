@@ -1,14 +1,24 @@
 <div>
   <form role="form">
-    <div class="form-group">
-      <label>Started: </label>
-      <label class="control-label">{{start}}</label>
+    <div class="form-group input-group">
+      <span class="input-group-addon" >Status</span>
+      <input class="form-control" disabled {{bind-attr style=style}} {{bind-attr value=status}} >
+    </div>
+    <div class="form-group input-group">
+      <span class="input-group-addon" >Start</span>
+      <input class="form-control" disabled {{bind-attr value=start}} >
+    </div>
+    <div class="form-group input-group">
+      <span class="input-group-addon" >Finish</span>
+      <input class="form-control" disabled {{bind-attr value=end}} >
+    </div>
+    <div class="form-group input-group">
+      <span class="input-group-addon" >Amount $</span>
+      <input class="form-control"  disabled {{bind-attr value=amount}} >
     </div>
     <div class="form-group">
-      <label class="control-label">Finished: {{end}}</label>
-    </div>
-    <div class="form-group">
-      <label class="control-label">Amount: ${{amount}}</label>
+      <label >Comments</label>
+      <textarea class="form-control" rows="3" disabled {{bind-attr value=comments}}> </textarea>
     </div>
   </form>
 </div>

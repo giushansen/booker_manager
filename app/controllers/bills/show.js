@@ -12,7 +12,7 @@ export default Ember.ObjectController.extend({
       var billStatus = '';
 
       // Check if this bill status should be paid unpaid or booked
-      if( !isNaN(timeOutDate) ){
+      if( this.get('paid') ){
         billStatus = 'paid';
       }else if ( isNaN(timeOutDate) && isNaN(timeBookedDate) ){
         // Add the maximum time a table can stay from the application = 90 minutes
