@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
   // Shortcut method
-  needs: 'application',
+  needs: ['application', 'table'],
   application: Ember.computed.alias("controllers.application"),
   totalTimeToString: function(d) {
     if ( isNaN(d) ) {
@@ -51,5 +51,29 @@ export default Ember.ObjectController.extend({
       default: return;
     }
   }.property('status'),
+
+  actions: {
+    create: function(){
+      var table_id = this.get('controllers.table.id');
+      var _this = this;
+
+      this.store.find('table', table_id).then(function(table){
+        table.get('bills').then(function(bills){
+          bills.addObject(
+            _this.store.createRecord('bill', {
+              customer: 1,
+              pax: 4,
+              timeIn: 'Mon Nov 03 2014 18:00:00 GMT+0800 (AWST)',
+              amount: 33,
+              paid: true,
+              timeOut: 'Mon Nov 03 2014 18:10:00 GMT+0800 (AWST)',
+              comments: 'Wonderful client!',
+              table: table
+            })
+          );
+        });
+      });
+    },
+  },
 
 });

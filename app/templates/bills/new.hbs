@@ -2,27 +2,31 @@
   <form role="form">
     <div class="form-group input-group">
       <span class="input-group-addon" >Pax</span>
-      <input class="form-control" disabled {{bind-attr value=pax}} >
+      {{input valueBinding='pax' class='form-control'}}
     </div>
     <div class="form-group input-group">
       <span class="input-group-addon" >Status</span>
-      <input class="form-control" disabled {{bind-attr style=style}} {{bind-attr value=status}} >
+      {{input styleBinding='style' valueBinding='status' class='form-control'}}
     </div>
     <div class="form-group input-group">
       <span class="input-group-addon" >Start</span>
-      <input class="form-control" disabled {{bind-attr value=start}} >
+      {{input valueBinding='start' class='form-control'}}
     </div>
     <div class="form-group input-group">
       <span class="input-group-addon" >Finish</span>
-      <input class="form-control" disabled {{bind-attr value=end}} >
+      {{input valueBinding='end' class='form-control'}}
     </div>
     <div class="form-group input-group">
       <span class="input-group-addon" >Amount $</span>
-      <input class="form-control"  disabled {{bind-attr value=amount}} >
+      {{input valueBinding='amount' class='form-control'}}
     </div>
     <div class="form-group">
       <label >Comments</label>
-      <textarea class="form-control" rows="3" disabled {{bind-attr value=comments}}> </textarea>
+      {{textarea valueBinding='comments' rows='3' class='form-control'}}
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-large btn-primary" {{action 'create'}}>Create</button>
     </div>
   </form>
 </div>
