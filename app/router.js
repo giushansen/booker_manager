@@ -14,6 +14,7 @@ Router.map(function() {
       });
     });
     this.resource('bill', { path: '/bill/:bill_id' }, function() {
+      this.route('edit');
     });
   });
 });

@@ -9,4 +9,10 @@ export default Ember.ObjectController.extend({
   showTable: function() {
     this.transitionToRoute('table.index', this.get('id'));
   },
+  newBill: function() {
+    this.transitionToRoute('bills.new', this.get('id'));
+  },
+  editBill: function(bill_id) {
+    this.transitionToRoute('bill.edit', bill_id);
+  },
 });

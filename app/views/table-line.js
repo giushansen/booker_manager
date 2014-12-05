@@ -14,7 +14,16 @@ export default Ember.View.extend({
     return false;
   },
   doubleClick: function(e) {
-    var table_id = this.get('controller').get('model').get('id');
-    this.get('controller').transitionToRoute('bills.new', table_id);
+    var elem = $(e.target);
+    if (elem.attr('data-bill')) {
+      // Clicking a Bill
+      this.get('controller').editBill(elem.attr('data-bill'));
+    }else{
+      // Clicking a Table
+      //var table_id = this.get('controller').get('model').get('id');
+      //this.get('controller').transitionToRoute('bills.new', table_id);
+      this.get('controller').newBill();
+    }
+    return false;
   },
 });
