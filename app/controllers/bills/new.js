@@ -12,7 +12,13 @@ export default Ember.ObjectController.extend({
     }
   },
 
+  // Allow query params
+  queryParams: ['start-time'],
+
+  'start-time': null,
+
   start: function() {
+    //console.log(' - Controller starti ', this.queryParams.starti );
     var dateIn = new Date(this.get('timeIn'));
     var dateBooked = new Date(this.get('timeBooked'));
     if ( !isNaN(dateIn) ){
