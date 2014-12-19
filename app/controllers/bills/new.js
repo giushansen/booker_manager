@@ -18,7 +18,6 @@ export default Ember.ObjectController.extend({
   'start-time': null,
 
   start: function() {
-    //console.log(' - Controller starti ', this.queryParams.starti );
     var dateIn = new Date(this.get('timeIn'));
     var dateBooked = new Date(this.get('timeBooked'));
     if ( !isNaN(dateIn) ){
