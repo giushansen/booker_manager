@@ -8,7 +8,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-table fa-fw"></i>
-              1st of October night service
+              {{serviceDate}}
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -20,7 +20,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                          {{#each}}
+                          {{#each this.model.tables}}
                             {{render 'services/show' this}}
                           {{/each}}
                         </tbody>

@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('service', { path: '/service' }, function() {
+  this.resource('service', { path: '/service/:service_id' }, function() {
     // Additional child routes will go here later
     this.resource('table', { path: '/table/:table_id' }, function() {
       this.resource('bills', { path: '/bills' }, function() {

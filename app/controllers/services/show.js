@@ -17,6 +17,8 @@ export default Ember.ObjectController.extend({
     this.transitionToRoute('bill.edit', bill_id);
   },
 
+
+
   /*tickTrigger: function() {
     this.tick();
   }.on('init'),*/
