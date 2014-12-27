@@ -16,10 +16,10 @@ export default Ember.View.extend({
   doubleClick: function(e) {
     var elem = $(e.target);
     if (elem.attr('data-bill')) {
-      // Clicking a Bill
+      // Double Clicking a Bill
       this.get('controller').editBill( elem.attr('data-bill') );
     }else{
-      // Clicking a Table
+      // Double Clicking a Table
       this.get('controller').newBill(elem.attr('id'));
     }
     return false;
