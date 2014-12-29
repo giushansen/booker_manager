@@ -16,53 +16,55 @@ export default Ember.ObjectController.extend({
     return days[d.getDay()] + ' ' + this.get('uname') + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
   }.property('start'),
 
-  hours: 18,
-  minutes: 0,
-  duration: 180,
-  unitMinutes: 1,
-  serviceSlot: 15,
+  startDate: function(){
+    return new Date( this.get('start') );
+  }.property('start'),
+
+  endDate: function(){
+    return new Date( this.get('end') );
+  }.property('end'),
+
+  duration: function() {
+    var startDate = this.get('startDate'),
+    endDate = this.get('endDate');
+    return Math.round(( (endDate - startDate) / 1000) / 60);
+  }.property('start', 'end'),
 
   tableHeader: function(){
-    var html = "",
-    // TODO have to implement currentTime instead of hours/minutes
-    currentTime = this.get('start'),
-    hours = this.get('hours'),
-    minutes = this.get('minutes'),
-    serviceDuration = this.get('duration'),
-    serviceSlot = this.get('serviceSlot'),
-    timeToString = this.get('application').timeToString;
-
-    var timeColumns = serviceDuration / serviceSlot;
-
-    var displayTime = function (){
-      if (minutes === 0){
-        return timeToString(hours);
-      }else{
-        return "<em class='small'>" + timeToString(minutes) + "</em>";
-      }
-    };
-    var totalTimeToString = function (){
-      return timeToString(hours) + '-' + timeToString(minutes);
-    };
-
-    var timeIncrement = function (){
-      if (minutes === (60 - serviceSlot) ) {
-        minutes = 0;
-        hours++;
-      }else{
-        minutes += serviceSlot;
-      }
-    };
+    var html = "";
+    var currentTime = new Date(this.get('startDate'));
+    var serviceDuration = this.get('duration');
+    var serviceSlot = 15;
+    var columnsNumber = serviceDuration / serviceSlot;
 
     do {
-      html+= "<th colspan='" + serviceSlot + "' id='" + totalTimeToString(hours, minutes) + "'>" + displayTime(hours, minutes) + "</th>";
-      timeIncrement(serviceSlot, hours, minutes);
-      timeColumns--;
-    } while (timeColumns > 0);
+      html+= "<th colspan='" + serviceSlot + "' id='" + this.totalTimeToString(currentTime) + "'>" + this.displayTime(currentTime) + "</th>";
+      currentTime = this.timeIncrement(currentTime, serviceSlot);
+      columnsNumber--;
+    } while (columnsNumber > 0);
 
     return new Ember.Handlebars.SafeString(html);
   }.property(),
 
+  timeIncrement:  function (time, slot){
+    time.setMinutes(time.getMinutes() + slot);
+    return time;
+  },
 
+  displayTime:  function (time){
+    if (time.getMinutes() === 0){
+      return this.timeToString(time.getHours());
+    }else{
+      return "<em class='small'>" + this.timeToString(time.getMinutes()) + "</em>";
+    }
+  },
+
+  totalTimeToString: function(d){
+    return this.timeToString(d.getHours()) + '-' + this.timeToString(d.getMinutes());
+  },
+
+  timeToString: function(time){
+    return ('0' + time ).slice(-2);
+  }
 
 });

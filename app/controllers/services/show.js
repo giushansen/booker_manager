@@ -21,28 +21,14 @@ export default Ember.ObjectController.extend({
   tableLine: function(){
     var html = "",
     tableId = this.get('id'),
-    hours = this.get('service').hours,
-    minutes = this.get('service').minutes,
-    serviceDuration = this.get('service').duration,
-    unitMinutes = this.get('service').unitMinutes,
-    timeToString = this.get('application').timeToString;
-
-    var totalTimeToString = function (){
-      return timeToString(hours) + '-' + timeToString(minutes);
-    };
-
-    var timeIncrement = function (){
-      if (minutes === (60 - unitMinutes) ) {
-        minutes = 0;
-        hours++;
-      }else{
-        minutes += unitMinutes;
-      }
-    };
+    currentTime = new Date ( this.get('service.start') ),
+    serviceDuration = this.get('service.duration'),
+    unitMinutes = 1,
+    totalTimeToString = this.get('service').totalTimeToString;
 
     do {
-      html+= "<td id='" + tableId + "-" + totalTimeToString() +"'> &nbsp; </td>";
-      timeIncrement();
+      html+= "<td id='" + tableId + "-" + totalTimeToString.apply( this.get('service'), [currentTime]) +"'> &nbsp; </td>";
+      currentTime = this.get('service').timeIncrement(currentTime, unitMinutes);
       serviceDuration--;
     } while (serviceDuration > 0);
 
