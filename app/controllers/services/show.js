@@ -20,15 +20,15 @@ export default Ember.ObjectController.extend({
 
   tableLine: function(){
     var html = "",
+    unitMinutes = 1,
     tableId = this.get('id'),
     currentTime = new Date ( this.get('service.start') ),
     serviceDuration = this.get('service.duration'),
-    unitMinutes = 1,
-    totalTimeToString = this.get('service').totalTimeToString;
+    service = this.get('service');
 
     do {
-      html+= "<td id='" + tableId + "-" + totalTimeToString.apply( this.get('service'), [currentTime]) +"'> &nbsp; </td>";
-      currentTime = this.get('service').timeIncrement(currentTime, unitMinutes);
+      html+= "<td id='" + tableId + "-" + service.totalTimeToString.apply( service, [currentTime]) +"'> &nbsp; </td>";
+      currentTime = service.timeIncrement(currentTime, unitMinutes);
       serviceDuration--;
     } while (serviceDuration > 0);
 
