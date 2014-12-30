@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
-  // Shortcut method
   needs: 'application',
   application: Ember.computed.alias("controllers.application"),
   totalTimeToString: function(d) {
